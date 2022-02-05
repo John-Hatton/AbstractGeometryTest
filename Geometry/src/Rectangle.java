@@ -12,8 +12,9 @@ public class Rectangle extends GeometricObject
 	}
 	
 	// alternate constructor
-	Rectangle(double width, double height)
+	Rectangle(double width, double height, String name, String color, boolean filled)
 	{
+		super(name, color, filled);
 		this.width = width;
 		this.height = height;
 	}
