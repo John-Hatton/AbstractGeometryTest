@@ -1,83 +1,69 @@
-import java.util.Date;
 
-public abstract class GeometricObject 
+public class Circle extends GeometricObject
 {
-	// attributes 
-	
-	protected String color = "white";
-	protected boolean filled;
-	private Date dateCreated;
-	private String name = null;
+	//attributes
+	private double radius;
 	
 	
-	
-	
-	//-----------------------------------------------
-	
-	
-	// default constructor
-	protected GeometricObject()
+	// default noarg constructor
+	public Circle() 
 	{
 		
 	}
 	
+	// alternate constructors 
 	
-	// alternate constructor
-	protected GeometricObject(String name, String color, boolean filled)
+	public Circle (int radius)
 	{
-		dateCreated = new Date();
-		this.name = name;
-		this.color = color;
-		this.filled = filled;
+		this.radius = radius;
 	}
+	
+	public Circle (double radius)
+	{
+		this.radius = radius;
+	}
+	
+	public Circle(double radius, String name, String color, boolean filled)
+	{
+		super(name, color, filled);
+		this.radius = radius;
+		
+	}
+	
 	
 	// behaviors
 	
-	public String getColor()
+	public double getRadius()
 	{
-		return color;
+		return radius;
 	}
 	
-	public void setColor(String color)
+	public void setRadius(double radius)
 	{
-		this.color = color;
+		this.radius = radius;
 	}
 	
-	public boolean isFilled()
+	public double getDiameter()
 	{
-		return filled;
+		return 2*radius;
 	}
-	
-	public void setFilled(boolean filled)
-	{
-		this.filled = filled;
-	}
-	
-	public Date getDateCreated()
-	{
-		return dateCreated;
-	}
-	
-	public String getName()
-	{
-		return name;
-	}
-	public void setName(String name)
-	{
-		this.name = name;
-	}
-	
-	
-	@Override
-	public String toString()
-	{
-		return "created on" + dateCreated + "\ncolor" + color + " and filled: " + filled;
-	}
-	
-	
-	public abstract double getArea();
-	public abstract double getPerimeter();
 	
 
+	@Override
+	public double getArea() 
+	{
+		return Math.PI * (radius * radius);
+	}
 	
+	@Override
+	public double getPerimeter()
+	{
+		return 2 * Math.PI * radius;
+	}
+	
+	public void printCircle()
+	{
+		System.out.println("The circle is created " + getDateCreated() +
+			      " and the radius is " + radius);
+	}
 }
