@@ -1,56 +1,83 @@
+import java.util.Date;
 
-public class Circle extends GeometricObject
+public abstract class GeometricObject 
 {
-	//attributes
-	private double radius;
+	// attributes 
+	
+	protected String color = "white";
+	protected boolean filled;
+	private Date dateCreated;
+	private String name = null;
 	
 	
-	// default noarg constructor
-	public Circle() 
+	
+	
+	//-----------------------------------------------
+	
+	
+	// default constructor
+	protected GeometricObject()
 	{
 		
 	}
 	
-	// alternate constructors 
-	public Circle(double radius)
-	{
-		this.radius = radius;
-	}
 	
+	// alternate constructor
+	protected GeometricObject(String name, String color, boolean filled)
+	{
+		dateCreated = new Date();
+		this.name = name;
+		this.color = color;
+		this.filled = filled;
+	}
 	
 	// behaviors
 	
-	public double getRadius()
+	public String getColor()
 	{
-		return radius;
+		return color;
 	}
 	
-	public void setRadius(double radius)
+	public void setColor(String color)
 	{
-		this.radius = radius;
+		this.color = color;
 	}
 	
-	public double getDiameter()
+	public boolean isFilled()
 	{
-		return 2*radius;
+		return filled;
 	}
+	
+	public void setFilled(boolean filled)
+	{
+		this.filled = filled;
+	}
+	
+	public Date getDateCreated()
+	{
+		return dateCreated;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	
+	
+	@Override
+	public String toString()
+	{
+		return "created on" + dateCreated + "\ncolor" + color + " and filled: " + filled;
+	}
+	
+	
+	public abstract double getArea();
+	public abstract double getPerimeter();
 	
 
-	@Override
-	public double getArea() 
-	{
-		return Math.PI * (radius * radius);
-	}
 	
-	@Override
-	public double getPerimeter()
-	{
-		return 2 * Math.PI * radius;
-	}
-	
-	public void printCircle()
-	{
-		System.out.println("The circle is created " + getDateCreated() +
-			      " and the radius is " + radius);
-	}
 }
