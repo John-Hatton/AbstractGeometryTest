@@ -1,40 +1,46 @@
 import java.util.Scanner;
 public class Launcher 
 {
+	public static void printShape(GeometricObject shape)
+	{
+		System.out.println("\nThe perimeter of " + shape.getName() + " is: " + shape.getPerimeter());
+		System.out.println("The area of " + shape.getName() + " is: " + shape.getArea());
+		System.out.println(shape.getName() + " is filled: " + shape.isFilled());
+		System.out.println("The color of " + shape.getName() + " is: " + shape.getColor() + "\n");
+	}
+	
 	public static void main(String args[])
 	{
 		System.out.println("Hello World!");
 		
 		// attributes
 		
-		GeometricObject circle = new Circle();
 		
-		GeometricObject rectangle = new Rectangle();
-		GeometricObject circle2 = new Circle(5);
-		circle2.setFilled(true);
-		GeometricObject rectangle2 = new Rectangle(4,2);
+		Rectangle rectangle = new Rectangle();
+		GeometricObject circle2 = new Circle(5, "Circle2", "blue", true);
+		GeometricObject rectangle2 = new Rectangle(4,2, "Rectangle", "orange", false);
+		Rectangle rectangle3 = new Rectangle(3,5, "Rectangle 3", "cyan", true);
+		
+		
 		Scanner input = new Scanner(System.in);
 		
-		System.out.println("The area of Circle 1 is: " + circle.getArea());
-		System.out.println("The perimeter of Circle 1 is: " + circle.getPerimeter());
-		System.out.println("Circle 1 is filled: " + circle.isFilled());
-		System.out.println("The color of Circle 1 is: " + circle.getColor());
-		System.out.println();
-		System.out.println("The area of Circle 2 is: " + circle2.getArea());
-		System.out.println("The perimeter of Circle 2 is: " + circle2.getPerimeter());
-		System.out.println("Circle 2 is filled: " + circle2.isFilled());
-		System.out.println("The color of Circle 2 is: " + circle2.getColor());
-		System.out.println();
-		System.out.println("The area of Rectangle 1 is: " + rectangle.getArea());
-		System.out.println("The perimeter of Rectangle 1 is: " + rectangle.getPerimeter());
-		System.out.println("Rectangle 1 is filled: " + rectangle.isFilled());
-		System.out.println("The color of Rectangle 1 is: " + rectangle.getColor());
-		System.out.println();
-		System.out.println("The area of Rectangle 2 is: " + rectangle2.getArea());
-		System.out.println("The perimeter of Rectangle 2 is: " + rectangle2.getPerimeter());
-		System.out.println("Rectangle 2 is filled: " + rectangle2.isFilled());
-		System.out.println("The color of Rectangle 2 is: " + rectangle2.getColor());
-		System.out.println();
+		printShape(circle2);
+		printShape(rectangle);
+		rectangle.setName("Big Rectangle");
+		rectangle.setHeight(5);
+		rectangle.setWidth(1000);
+		rectangle.setFilled(true);
+		rectangle.setColor("royal blue");
+		printShape(rectangle);
+
+		printShape(rectangle2);
+		
+		printShape(rectangle3);
+		rectangle3.setHeight(4);
+		rectangle3.setWidth(5);
+		rectangle3.setName("Tavarisch");
+		
+		printShape(rectangle3);
 		
 		System.out.println("I'm going to create a new object. Please give it some fields! ");
 		
@@ -55,6 +61,7 @@ public class Launcher
 		
 		int newFilled = input.nextInt();
 		boolean newIsFilled = false;
+		input.close();
 		
 		if (newFilled == 1)
 		{
@@ -70,13 +77,10 @@ public class Launcher
 		
 		System.out.println("\nWoohoo! We created a new Circle object!!!\n\n");
 		
-		System.out.println("The circumference of your new circle is: " + newCircle.getPerimeter());
-		System.out.println("The area of your new Circle is: " + newCircle.getArea());
-		System.out.println("Your new circle is filled: " + newCircle.isFilled());
-		System.out.println("The color of your new circle is: " + newCircle.getColor());
-		System.out.println();
 		
+		newCircle.setName("New Circle");
 		
+		printShape(newCircle);
 		
 		
 		
