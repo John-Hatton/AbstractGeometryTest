@@ -4,9 +4,10 @@ public abstract class GeometricObject
 {
 	// attributes 
 	
-	private String color = "white";
-	private boolean filled;
+	protected String color = "white";
+	protected boolean filled;
 	private Date dateCreated;
+	private String name = null;
 	
 	
 	
@@ -22,9 +23,10 @@ public abstract class GeometricObject
 	
 	
 	// alternate constructor
-	protected GeometricObject(String color, boolean filled)
+	protected GeometricObject(String name, String color, boolean filled)
 	{
 		dateCreated = new Date();
+		this.name = name;
 		this.color = color;
 		this.filled = filled;
 	}
@@ -55,6 +57,16 @@ public abstract class GeometricObject
 	{
 		return dateCreated;
 	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	
 	
 	@Override
 	public String toString()
