@@ -5,6 +5,8 @@ A test of abstract classes, abstract methods, and so on.
 ***TO RUN:
 open Launcher.java in an IDE or in a terminal, and run the program. :D
 
+![Alt Text](assets/Starship.jpg)
+
 
 
 
